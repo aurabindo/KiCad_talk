@@ -43,6 +43,21 @@
 					<h1>PCB Design with KiCad</h1>
                                 </section>
                                 <section>
+                                    <h1>Example Project</h1>
+                                    <p>
+                                    A tool for measuring inductors.
+                                    Inductors are important especially in circuits involving higher currents, but they can be hard to measure.
+                                    </p>
+                                    \[ V = L \frac{dI}{dt} \]
+                                    <p>
+                                    Or, in English, the voltage across the inductor is equal to it's inductance times the change in current through the inductor.
+                                    This circuit will apply a constant voltage step, and allow us to measure \(dI/dt\) so we can find \(L\).
+                                    </p>
+                                    <ul>
+                                    </ul>
+                                    </p>
+                                </section>
+                                <section>
                                     <h1>Basic PCB Terminology</h1>
                                     <ul>
                                         <li><b>Solder Mask - </b>The green stuff.
@@ -60,8 +75,8 @@
                                     </p>
 
                                     <ul>
-                                        <li><b>KiCad - </b>Organises projects
-                                        <li><b>Eeschema - </b>Schematic capture program
+                                        <li><b>KiCad - </b>Organises projects / launches other programs
+                                        <li><b>Eeschema - </b>Schematic capture
                                         <li><b>Pcbnew - </b>PCB Layout
                                         <li><b>GerbView - </b>Gerber file viewer
                                     </ul>
@@ -73,30 +88,117 @@
                                     </p>
                                 </section>
                                 <section>
-                                    <h1>Eeschema</h1>
-                                    <center><small>Schematic Capture</small></center>
-                                    <p>
-                                    What is "schematic capture"?  It's the process of drawing the schematic (aka circuit diagram), which produces the netlist and BOM.
-                                    </p>
+                                    <section>
+                                        <h1>Eeschema</h1>
+                                        <center><small>Schematic Capture</small></center>
+                                        <p>
+                                        What is "schematic capture"?  It's all about drawing the schematic (aka circuit diagram), which produces the netlist and BOM.
+                                        The netlist is required for PCB layout, or can be used for running simulations in <a href="http://ngspice.sourceforge.net/">SPICE</a>.
+                                        More below.
+                                        </p>
+                                        <img src="media/eeschema.png" />
+                                    </section>
+                                    <section>
+                                        <p>
+                                        UI involves using keyboard + mouse, you'll want to learn some of the keyboard shortcuts.
+                                        </p>
+                                        <ul>
+                                            <li>ESC - normal cursor
+                                            <li>Return - repeat last
+                                            <li>a - <em>A</em>dd component (defaults to last used)
+                                            <li>m - <em>M</em>ove object (breaks connections)
+                                            <li>g - <em>G</em>rab object (moves connections, tab for groups?)
+                                            <li>p - <em>P</em>ower node
+                                            <li>v - <em>V</em>alue of the part
+                                            <li>w - <em>W</em>ire
+                                        </ul>
+                                    </section>
+                                    <section>
+                                        <p>
+                                        Wires can be connected to other wires (filled green circles) or unconnected pins (square/circle outlines).
+                                        </p><p>
+                                        General workflow is to move cursor to start of wire, press 'w' key, draw wire, pressing 'w' to add corners, then click a node or press 'k' to end the wire.
+                                        </p>
+                                        <img src="media/wires.png" height="400px"/>
+                                    </section>
+                                        <section>
+                                        <img src="media/555-nopower.png" />
+                                        <p>
+                                        Where are pins 1 and 8?
+                                        Some parts have pins that are hidden by default - see the "Show hidden pins" button on the left.
+                                        Make sure a net has name "VCC" to provide power to these.
+                                        </p>
+                                        <img src="media/show-hidden.png" />
+                                    </section>
+                                    <section>
+                                        <p>
+                                        Once the diagram has all required parts, "Annotate" it to change reference designators from C? to C123.
+                                        </p>
+                                        <p>
+                                        Next, we need to associate the parts on the schematic with footprints for the PCB Layout tool.
+                                        Run the CvPcb tool with the button at the top:
+                                        </p>
+                                        <img src="media/cvpcb.png" />
+                                    </section>
+                                    <section>
+                                        <p>
+                                        CvPcb shows three panes - the left pane is a list of parts libraries, the middle is the parts in your schematic, and the right is a list of parts that have passed through the current set of filters.
+                                        Filters are enabled/disabled using the buttons at the top.
+                                        Associate parts by highlighting your part in the middle, then double clicking the footprint on the right.
+                                        </p>
+                                        <img src="media/cvpcb-2.png" />
+                                    </section>
+                                    <section>
+                                        <p>
+                                        Once all the parts on your board are associated with footprints, click the "save" button and go back to Eeschema to export the netlist.
+                                        Default settings should be fine for Pcbnew.
+                                        </p>
+                                        <img src="media/export-netlist.png" />
+                                    </section>
+
                                 </section>
                                 <section>
-                                    <h1>Pcbnew - PCB Layout</h1>
-                                    <p>
+                                    <section>
+                                        <h1>Pcbnew - PCB Layout</h1>
+                                        <center><small>The fun part!</small></center>
+                                        <p>
                                     
-                                    </p>
+                                        </p>
+                                    </section>
+                                    <section>
+                                        <p>
+                                        The first step using Pcbnew in a new project is importing the netlist from your earlier work in Eeschema.
+                                        Click the "Read netlist" button to bring in your earlier work - it should be selected by default.
+                                        You might get a few errors like these - we'll deal with them later:
+                                        </p>
+                                        <img src="media/pcbnew-import.png" />
+                                    </section>
+                                    <section>
+                                        <p>
+                                        Once your netlist is imported, all the parts will be stacked on top of each other - not very helpful.
+                                        Make sure you're in "Footprint mode" <img src="media/pcbnew-footprint-mode.png" />, then right click in the black area and select "Global Spread and Place", then "Spread out All Footprints".
+                                        </p>
+                                    </section>
+                                    <section>
+                                        <p>
+                                        In my experience, PCB layout is an iterative process.
+                                        This time, we know the maximum dimensions based on the PCB supplier - it's cheaper if we can stay inside 5x5 cm - so let's start making a board outline.
+                                        Pick the Edge.Cuts layer on the right hand side, then select the "Add Graphic Line or Polygon".
+                                        </p>
+                                        <img src="media/pcbnew-draw-edge.png" />
+                                    </section>
                                 </section>
                                 <section>
                                     <h1>General Notes</h1>
                                     <ul>
                                         <li>File formats used in KiCad are "plain text", so work nicely with revision control systems.
+                                        <li>Presentation made with <a href="https://github.com/hakimel/reveal.js">reveal.js</a>
+                                        <li><a href="http://kicad-pcb.org/">KiCad homepage</a>
+                                        <li>Plenty resources on the net - eg this <a href="https://www.youtube.com/watch?v=zK3rDhJqMu0">YouTube video</a>.
                                     </ul>
                                 </section>
 				<section style="text-align: left;">
 					<h1>THE END</h1>
-					<p>
-                                            - Presentation made with <a href="https://github.com/hakimel/reveal.js">reveal.js</a>
-                                            - <a href="http://kicad-pcb.org/">KiCad homepage</a>
-					</p>
 				</section>
 
 			</div>
@@ -121,10 +223,11 @@
 				// Optional reveal.js plugins
 				dependencies: [
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				//	{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				//	{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				//	{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/math/math.js', async: true },
 					{ src: 'plugin/notes/notes.js', async: true }
 				]
 			});
