@@ -162,7 +162,31 @@
                                         <h1>Pcbnew - PCB Layout</h1>
                                         <center><small>The fun part!</small></center>
                                         <p>
-                                    
+                                        Pcbnew is the program where we do the actual circuit board layout.
+                                        It takes a netlist from Eeschema and footprint information from the library, and helps you lay out a PCB.
+                                        </p>
+                                        <img src="media/pcbnew.png" />
+                                    </section>
+                                    <section>
+                                        <h1>What am I looking at?</h1>
+                                        <ul>
+                                            <li>Thin white lines are the "Rat's nest".  These are connections that need to be made.
+                                            <li>Different colours mostly represent different layers in the "stack up", but a few are intended to help with design or assembly.  See the bar on the right.
+                                            <li>"Edge.Cuts" is the border of the PCB.
+                                        </ul>
+                                    </section>
+                                    <section>
+                                        <h1>Units</h1>
+                                        <p>
+                                        PCBs dimensions are often discussed in mils, which is prounounced "terrible unit".
+                                        A mil is \(\frac{1 inch}{1000}\), <em>not</em> a millimeter.
+                                        </p>
+                                        <p>
+                                        Things get especially fun with SMT package sizing eg 0603 Metric is equivalent to 0201 Imperial, about a third the size of the more common 0603 Imperial.
+                                        </p>
+                                        <p>
+                                        You'll find some parts fit nicely on mm grids, and some fit nicely on inch grids.
+                                        So, don't get too caught up on one system or another - it's very easy to switch the grid as desired.
                                         </p>
                                     </section>
                                     <section>
@@ -186,6 +210,50 @@
                                         Pick the Edge.Cuts layer on the right hand side, then select the "Add Graphic Line or Polygon".
                                         </p>
                                         <img src="media/pcbnew-draw-edge.png" />
+                                        <p>
+                                        While getting the outline right, you might find it helpful to right-click on sections of the "drawing" (the outline) with the drawing tool selected.
+                                        For example, the arc tool will create 90&deg; arcs by default, but those can be changed through the "Edit Drawing" context menu.
+                                        </p>
+                                    </section>
+                                    <section>
+                                        <p>
+                                        Unfortunately, there's an error in the netlist generated - the gate pin on this FET should be pin 1, but we've got it connected to pin 2...
+                                        </p>
+                                        <img src="media/footprint-issue.png" />
+                                    </section>
+                                </section>
+                                <section>
+                                    <section>
+                                        <h1>Pcbnew - Footprints</h1>
+                                        <center><small>Slightly painful!</small></center>
+                                        <p>
+                                        Although KiCad has a large (and growing) libary of components available, we'll likely need to make some additions or changes.
+                                        In doing this, it's important to understand the distinction between a "Library" and a ....
+
+                                        </p>
+                                    </section>
+                                    <section>
+                                        <p>
+                                        Back in Eeschema, find the offending symbol.
+                                        Right click, "Edit Component &gt; Edit Component in Library Editor"
+                                        </p>
+                                        <small>There's probably a better way to do this, but this works:</small>
+                                        <ul>
+                                            <li>Fix the part - in this case, change pin assignments by putting the cursor over the pin to change and pressing "e".
+                                            <li>Save the current component to a new library.  Put the new library in the project folder if you intend to share it.
+                                            <li>Close the Part Library Editor.
+                                            <li>Back in Eeschema, "Preferences &gt; Component Libraries".
+                                            <li>Click the <em>top</em> "Add" button and navigate your new library.
+                                        </ul>
+                                        <small>continues...</small>
+                                    </section>
+                                    <section>
+                                        <ul>
+                                            <li>Right click the symbol again, click "Edit", then click "Select" in the "Chip Name" box.
+                                            <li>Press OK in the Edit dialog.  It may be hidden behind Eeschema (Mac only?).
+                                            <li>Save, then re-export the netlist over the top of the last one.
+                                            <li>Back in Pcbnew, import the netlist again.
+                                        </ul>
                                     </section>
                                 </section>
                                 <section>
@@ -194,7 +262,7 @@
                                         <li>File formats used in KiCad are "plain text", so work nicely with revision control systems.
                                         <li>Presentation made with <a href="https://github.com/hakimel/reveal.js">reveal.js</a>
                                         <li><a href="http://kicad-pcb.org/">KiCad homepage</a>
-                                        <li>Plenty resources on the net - eg this <a href="https://www.youtube.com/watch?v=zK3rDhJqMu0">YouTube video</a>.
+                                        <li>Plenty resources on the net - eg this <a href="https://www.youtube.com/watch?v=zK3rDhJqMu0">YouTube video</a> or <a href="https://forum.kicad.info/">forums</a>.
                                     </ul>
                                 </section>
 				<section style="text-align: left;">

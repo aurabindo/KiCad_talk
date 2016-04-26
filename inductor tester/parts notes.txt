@@ -1,0 +1,13 @@
+565-4315-ND $1.50 2200uF 16V Aluminum Polymer capacitor
+493-1049-ND $1.75 10000uF 16V Aluminum electrolytic cap
+490-5523-1-ND $3.74/50 10uF 25V Ceramic cap 0805
+
+568-9486-1-ND $1 100A NCh logic gate FET TO-263
+DB2W40200LCT-ND $0.20 40V 2A Schottky SOD-123F
+568-1636-1-ND $0.12 BC847 NPN TO-236  SOT23
+497-1170-1-ND $0.64 7805 TO-263-3
+???? Current sense resistor
+
+
+Bought 10x panel mount straight BNC Female jacks and 8x 5.5x2.1mm barrel connectors from AliExpress
+
