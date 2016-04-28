@@ -1,0 +1,20 @@
+*Sanity check of inductor tester circuit
+
+VGateDrive 1 0 (PULSE 0 1 1ms 1ns 1ns 5ms 1s)
+
+*Set of capacitors with esr and ic=10v between nodes 0 and 2
+Cceramic 2 0 100uF ic=10
+Calpoly 7 0 2.2mF ic=10
+resra 2 7 0.008
+Celectro 8 0 10mF ic=10
+resrb 2 8 0.03
+
+SIdealTransistor 2 3 1 0 CHUNKY
+.MODEL CHUNKY SW(RON=0.05)
+
+LInductorTest 6 3 50mH ic=0
+
+RCurrentSense 0 6 0.01
+
+.tran 1us 10ms uic
+.plot tran v(6)
