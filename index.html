@@ -36,36 +36,49 @@
 
 	<body>
 		<div class="reveal">
-
-			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
 					<h1>PCB Design with KiCad</h1>
                                 </section>
                                 <section>
-                                    <h1>Example Project</h1>
-                                    <p>
-                                    A tool for measuring inductors.
-                                    Inductors are important especially in circuits involving higher currents, but they can be hard to measure.
-                                    </p>
-                                    \[ V = L \frac{dI}{dt} \]
-                                    <p>
-                                    Or, in English, the voltage across the inductor is equal to it's inductance times the change in current through the inductor.
-                                    This circuit will apply a constant voltage step, and allow us to measure \(dI/dt\) so we can find \(L\).
-                                    </p>
-                                    <ul>
-                                    </ul>
-                                    </p>
+                                    <section>
+                                        <h1>Example Project</h1>
+                                        <p>
+                                        A tool for measuring inductors.
+                                        Inductors are important especially in circuits involving higher currents, but they can be hard to measure.
+                                        </p>
+                                        \[ V = L \frac{dI}{dt} \]
+                                        <p>
+                                        Or, in English, the voltage across the inductor is equal to it's inductance times the change in current through the inductor.
+                                        This circuit will apply a constant voltage step, and allow us to measure \(dI/dt\) so we can find \(L\).
+                                        </p>
+                                        <ul>
+                                        </ul>
+                                        </p>
+                                    </section>
+                                    <section>
+                                        <h1>Design Notes</h1>
+                                        <ul>
+                                            <li>Good discussion of similar tools including example output <a href="http://elm-chan.org/works/lchk/report.html">here</a>, or <a href="http://ludens.cl/Electron/lmeter/lmeter.html">here</a>.</li>
+                                            <li>Three types of capacitor to get large C &amp; low ESR/ESL.</li>
+                                            <li>Added voltage output so can correct for change in voltage step (and show when tester runs out of steam).</li>
+                                            <li>Pads for snubber and gate drive resistor/bead just in case.</li>
+                                            <li>Diode + resistors to dump energy from inductor.</li>
+                                            <li>Fixed pulse width.</li>
+                                            <li>Current sense polarity is reversed.</li>
+                                            <li>Mounting: Hot glue and PLA!</li>
+                                        </ul>
+                                    </section>
                                 </section>
                                 <section>
                                     <h1>Basic PCB Terminology</h1>
                                     <ul>
-                                        <li><b>Solder Mask - </b>The green stuff.
-                                        <li><b>Track - </b>Copper "wire" on the PCB.
-                                        <li><b>Net - </b>Logical connection between points in a schematic.
-                                        <li><b>Via - </b>Connection between tracks on different layers.
-                                        <li><b>Footprint - </b>Provision for attaching a part to a PCB.
-                                        <li><b>BOM - </b>Bill Of Materials (list of parts).
+                                        <li><b>Solder Mask - </b>The green stuff.</li>
+                                        <li><b>Track - </b>Copper "wire" on the PCB.</li>
+                                        <li><b>Net - </b>Logical connection between points in a schematic.</li>
+                                        <li><b>Via - </b>Connection between tracks on different layers.</li>
+                                        <li><b>Footprint - </b>Provision for attaching a part to a PCB.</li>
+                                        <li><b>BOM - </b>Bill Of Materials (list of parts).</li>
                                     </ul>
                                 </section>
                                 <section>
@@ -75,10 +88,10 @@
                                     </p>
 
                                     <ul>
-                                        <li><b>KiCad - </b>Organises projects / launches other programs
-                                        <li><b>Eeschema - </b>Schematic capture
-                                        <li><b>Pcbnew - </b>PCB Layout
-                                        <li><b>GerbView - </b>Gerber file viewer
+                                        <li><b>KiCad - </b>Organises projects / launches other programs</li>
+                                        <li><b>Eeschema - </b>Schematic capture</li>
+                                        <li><b>Pcbnew - </b>PCB Layout</li>
+                                        <li><b>GerbView - </b>Gerber file viewer</li>
                                     </ul>
                                 </section>
                                 <section>
@@ -103,14 +116,14 @@
                                         UI involves using keyboard + mouse, you'll want to learn some of the keyboard shortcuts.
                                         </p>
                                         <ul>
-                                            <li>ESC - normal cursor
-                                            <li>Return - repeat last
-                                            <li>a - <em>A</em>dd component (defaults to last used)
-                                            <li>m - <em>M</em>ove object (breaks connections)
-                                            <li>g - <em>G</em>rab object (moves connections, tab for groups?)
-                                            <li>p - <em>P</em>ower node
-                                            <li>v - <em>V</em>alue of the part
-                                            <li>w - <em>W</em>ire
+                                            <li>ESC - normal cursor</li>
+                                            <li>Return - repeat last</li>
+                                            <li>a - <em>A</em>dd component (defaults to last used)</li>
+                                            <li>m - <em>M</em>ove object (breaks connections)</li>
+                                            <li>g - <em>G</em>rab object (moves connections, tab for groups?)</li>
+                                            <li>p - <em>P</em>ower node</li>
+                                            <li>v - <em>V</em>alue of the part</li>
+                                            <li>w - <em>W</em>ire</li>
                                         </ul>
                                     </section>
                                     <section>
@@ -170,9 +183,9 @@
                                     <section>
                                         <h1>What am I looking at?</h1>
                                         <ul>
-                                            <li>Thin white lines are the "Rat's nest".  These are connections that need to be made.
-                                            <li>Different colours mostly represent different layers in the "stack up", but a few are intended to help with design or assembly.  See the bar on the right.
-                                            <li>"Edge.Cuts" is the border of the PCB.
+                                            <li>Thin white lines are the "Rat's nest".  These are connections that need to be made.</li>
+                                            <li>Different colours mostly represent different layers in the "stack up", but a few are intended to help with design or assembly.  See the bar on the right.</li>
+                                            <li>"Edge.Cuts" is the border of the PCB.</li>
                                         </ul>
                                     </section>
                                     <section>
@@ -218,51 +231,86 @@
                                     <section>
                                         <p>
                                         Unfortunately, there's an error in the netlist generated - the gate pin on this FET should be pin 1, but we've got it connected to pin 2...
+                                        <a href="#/footprints">How to fix</a>
                                         </p>
                                         <img src="media/footprint-issue.png" />
                                     </section>
-                                </section>
-                                <section>
                                     <section>
-                                        <h1>Pcbnew - Footprints</h1>
-                                        <center><small>Slightly painful!</small></center>
                                         <p>
-                                        Although KiCad has a large (and growing) libary of components available, we'll likely need to make some additions or changes.
-                                        In doing this, it's important to understand the distinction between a "Library" and a ....
-
+                                        Some of the track in this project will need to carry relatively high current, so we'll want to draw those a bit wider than default.
+                                        Pcbnew uses a concept of "Net Classes" to set default widths, clearances, via sizes, etc. for nets.
+                                        Net Classes are setup in Design Rules &gt; Design Rules Editor.
+                                        </p>
+                                        <p>
+                                        For a simple board, make sure the clearance for the default net list looks reasonable, then go to the Global Design Rules tab and add some extra track width and via diameters.
                                         </p>
                                     </section>
                                     <section>
                                         <p>
-                                        Back in Eeschema, find the offending symbol.
-                                        Right click, "Edit Component &gt; Edit Component in Library Editor"
+                                        The "add tracks and vias" tool lets you lay down wires.  When you're drawing, the 'w' key changes width, and the 'v' key adds a via.
                                         </p>
-                                        <small>There's probably a better way to do this, but this works:</small>
+                                    </section>
+                                </section>
+                                <section>
+                                    <section id="footprints">
+                                        <h1>Symbols &amp; Footprints</h1>
+                                        <center><small>Slightly painful!</small></center>
+                                        <p>
+                                        Although KiCad has a large libary of components available, we'll likely need to make some additions or changes.
+                                        In doing this, it's important to understand the distinction between a Symbol and Footprint (formerly known as module).
+                                        </p>
                                         <ul>
-                                            <li>Fix the part - in this case, change pin assignments by putting the cursor over the pin to change and pressing "e".
-                                            <li>Save the current component to a new library.  Put the new library in the project folder if you intend to share it.
-                                            <li>Close the Part Library Editor.
-                                            <li>Back in Eeschema, "Preferences &gt; Component Libraries".
-                                            <li>Click the <em>top</em> "Add" button and navigate your new library.
+                                            <li><b>Symbol</b> - Stored in a Library, is the thing that you see on the schematic/circuit diagram.  Make changes/additions to symbols via Eeschema.</li>
+                                            <li><b>Footprint</b> - Stored in a .pretty directory, represents the physical device on the PCB, modified in Pcbnew.</li>
+                                        </ul>
+                                    </section>
+                                    <section>
+                                        <p>
+                                        I've found three approaches to footprint issues in KiCad:
+                                        </p>
+                                        <ul>
+                                            <li>Make an entirely <a href="http://docs.kicad-pcb.org/en/getting_started_in_kicad.pdf">new Symbol and Footprint</a></li>
+                                            <li><a href="#/modifying-symbols">Modify an existing Symbol</a>/Footprint</li>
+                                            <li>Make a <a href="#/one-off-changes">one-off modification</a> to the Footprint in Pcbnew</li>
+                                        </ul>
+                                    </section>
+                                    <section id="modifying-symbols">
+                                        <h1>Modifying Symbols</h1>
+                                        <small>There's probably a better way to do this...</small>
+                                        <ul>
+                                            <li>Back in Eeschema, find the offending symbol.</li>
+                                            <li>Right click, "Edit Component &gt; Edit Component in Library Editor".</li>
+                                            <li>Fix the part - in this case, change pin assignments by putting the cursor over the pin to change and pressing "e".</li>
+                                            <li>Save the current component to a new library.  Put the new library in the project folder if you intend to share it.</li>
+                                            <li>Close the Part Library Editor.</li>
                                         </ul>
                                         <small>continues...</small>
                                     </section>
                                     <section>
                                         <ul>
-                                            <li>Right click the symbol again, click "Edit", then click "Select" in the "Chip Name" box.
-                                            <li>Press OK in the Edit dialog.  It may be hidden behind Eeschema (Mac only?).
-                                            <li>Save, then re-export the netlist over the top of the last one.
-                                            <li>Back in Pcbnew, import the netlist again.
+                                            <li>Back in Eeschema, "Preferences &gt; Component Libraries".</li>
+                                            <li>Click the <em>top</em> "Add" button and navigate your new library.</li>
+                                            <li>Right click the symbol again, click "Edit", then click "Select" in the "Chip Name" box.</li>
+                                            <li>Press OK in the Edit dialog.  It may be hidden behind Eeschema (Mac only?).</li>
                                         </ul>
+                                    </section>
+                                    <section id="one-off-changes">
+                                        <h1>One-off footprint changes</h1>
+                                        <ul>
+                                            <li>In Pcbnew, right click the [placed] footprint, then "Edit with Footprint Editor".</li>
+                                            <li>Make changes to the footprint as desired (hold cursor over pad and press 'e' to change pin numbers)</li>
+                                            <li>Click the "Update footprint in current board" button.</li>
+                                        </ul>
+                                        <img src="media/pcbnew-footprint-edit.png" />
                                     </section>
                                 </section>
                                 <section>
                                     <h1>General Notes</h1>
                                     <ul>
-                                        <li>File formats used in KiCad are "plain text", so work nicely with revision control systems.
-                                        <li>Presentation made with <a href="https://github.com/hakimel/reveal.js">reveal.js</a>
-                                        <li><a href="http://kicad-pcb.org/">KiCad homepage</a>
-                                        <li>Plenty resources on the net - eg this <a href="https://www.youtube.com/watch?v=zK3rDhJqMu0">YouTube video</a> or <a href="https://forum.kicad.info/">forums</a>.
+                                        <li>File formats used in KiCad are "plain text", so work nicely with revision control systems.</li>
+                                        <li>Presentation made with <a href="https://github.com/hakimel/reveal.js">reveal.js</a></li>
+                                        <li><a href="http://kicad-pcb.org/">KiCad homepage</a></li>
+                                        <li>Plenty resources on the net - eg this <a href="https://www.youtube.com/watch?v=zK3rDhJqMu0">YouTube video</a> or <a href="https://forum.kicad.info/">forums</a>, but keep in mind that KiCad is improving quickly and there is outdated information around.</li>
                                     </ul>
                                 </section>
 				<section style="text-align: left;">
@@ -291,9 +339,6 @@
 				// Optional reveal.js plugins
 				dependencies: [
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-				//	{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				//	{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				//	{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
 					{ src: 'plugin/math/math.js', async: true },
 					{ src: 'plugin/notes/notes.js', async: true }
