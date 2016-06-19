@@ -1,4 +1,4 @@
-update=Saturday, 30 April 2016 02:44:48 pm
+update=Thursday, 19 May 2016 06:23:45 pm
 version=1
 last_client=kicad
 [pcbnew]
@@ -60,3 +60,13 @@ LibName28=contrib
 LibName29=valves
 LibName30=nxp_logic_mosfet
 LibName31=inductor tester
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60
