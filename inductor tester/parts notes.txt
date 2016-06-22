@@ -5,9 +5,8 @@
 568-9486-1-ND $1 100A NCh logic gate FET TO-263
 DB2W40200LCT-ND $0.20 40V 2A Schottky SOD-123F
 568-1636-1-ND $0.12 BC847 NPN TO-236  SOT23
-497-1170-1-ND $0.64 7805 TO-263-3
 ???? Current sense resistor
-296-29904-1-ND $0.37 555 8-TSSOP 4.4mm width
+296-21752-1-ND $0.47 555 8-SOIC 3.9mm width (ones at makerspace came from aliexpress)
 
 
 Bought 10x panel mount straight BNC Female jacks and 8x 5.5x2.1mm barrel connectors from AliExpress
