@@ -39,37 +39,7 @@
 			<div class="slides">
 				<section>
 					<h1>PCB Design with KiCad</h1>
-                                </section>
-                                <section>
-                                    <section>
-                                        <h1>Example Project</h1>
-                                        <p>
-                                        A tool for measuring inductors.
-                                        Inductors are important especially in circuits involving higher currents, but they can be hard to measure.
-                                        </p>
-                                        \[ V = L \frac{dI}{dt} \]
-                                        <p>
-                                        Or, in English, the voltage across the inductor is equal to it's inductance times the change in current through the inductor.
-                                        This circuit will apply a constant voltage step, and allow us to measure \(dI/dt\) so we can find \(L\).
-                                        </p>
-                                        <ul>
-                                        </ul>
-                                        </p>
-                                    </section>
-                                    <section>
-                                        <h1>Design Notes</h1>
-                                        <ul>
-                                            <li>Good discussion of similar tools including example output <a href="http://elm-chan.org/works/lchk/report.html">here</a>, or <a href="http://ludens.cl/Electron/lmeter/lmeter.html">here</a>.</li>
-                                            <li>Three types of capacitor to get large C &amp; low ESR/ESL.</li>
-                                            <li>Added voltage output so can correct for change in voltage step (and show when tester runs out of steam).</li>
-                                            <li>Pads for snubber and gate drive resistor/bead just in case.</li>
-                                            <li>Diode + resistors to dump energy from inductor.</li>
-                                            <li>Fixed pulse width.<small>(oversight: if the trigger is held down, will get longer pulse...)</small></li>
-                                            <li>Current sense polarity is intentionally reversed.</li>
-                                            <li>Mounting: Hot glue and PLA!</li>
-                                        </ul>
-                                    </section>
-                                </section>
+        </section>
 				<section>
 					  <h1>Eagle vs Kicad</h1>
             <ul>
